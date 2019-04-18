@@ -1,4 +1,4 @@
-/* #group.howkteam.com -> trao đổi, hỏi đáp, thảo luận
+ /* #group.howkteam.com -> trao đổi, hỏi đáp, thảo luận
      #nhớ Like và Sub video youtube
      #Code: howkteam.com
      #Kho tài liệu: Howkteam.com/documentation
@@ -238,7 +238,7 @@ header{
 }
 
 .products-section .row{
-    width: 100%; /* Chép đè style .form ở trên */
+    width: 90%; /* Chép đè style .form ở trên */
 }
 
 /* Bài 15: Create */
@@ -294,7 +294,7 @@ header{
 }
 
 .testimonials-section .row{
-    width: 100%; /* Chép đè style .form ở trên */
+    width: 90%; /* Chép đè style .form ở trên */
 }
 
 
@@ -348,7 +348,7 @@ cite img{
 }
 
 .sponsors-section .row{
-    width: 100%; /* Chép đè style .form ở trên */
+    width: 90%; /* Chép đè style .form ở trên */
 }
 
 /* Bài 17: Create */
@@ -405,7 +405,7 @@ figcaption{
 }
 
 .contact-section .row{
-    width: 100%; /* Chép đè style .form ở trên */
+    width: 90%; /* Chép đè style .form ở trên */
     margin-bottom: 20px;
 }
 
@@ -477,16 +477,16 @@ footer{
 form{
     background-color: rgba(0,0,0, 0.4);
     margin-left: 40%;
-    width: 60%;
+    width: 70%;
     padding: 30px;
     margin-bottom: 30px;
 }
 
 /* Bài 20: Create */
-form .row{
-    width: 100%; /* Chép đè style .form ở trên */
+/* form .row{
+    width: 100%;
     margin-bottom: 20px;
-}
+} */
 
 /* Bài 20: Create */
 label{
