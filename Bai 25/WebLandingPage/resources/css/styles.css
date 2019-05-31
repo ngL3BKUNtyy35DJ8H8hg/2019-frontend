@@ -114,9 +114,11 @@ section{
     padding-bottom: 50px;
 }
 
+
+
 /* -------------------------------------------- */
-/* ------------------HEADER------------------ */
-/* ------------------------------------------------ */
+/* ------------------HEADER-------------------- */
+/* -------------------------------------------- */
 header{
     background-image: linear-gradient(45deg, rgba(2,33,64, 0.8) 55%, rgba(45,95,93, 0.85)), url("../img/background4.jpeg");
     background-size: cover;
@@ -173,6 +175,28 @@ header{
     font-size: 130%;
     margin-right: 10px;
 
+}
+
+/* -------------------------------------------- */
+/* -------------------Sticky------------------- */
+/* -------------------------------------------- */
+.sticky{
+    background-color: rgba(2,33,64,.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    width: 100%;
+    height: 70px;
+}
+
+.sticky .logo{
+    width: 250px;
+    margin-top: -40px;
+}
+
+.sticky .main-nav{
+    margin-top: 30px;
 }
 
 /* -------------------------------------------- */
