@@ -132,7 +132,8 @@ header{
     width: 350px;
     float: left;
     margin-left: 70px;
-    margin-top: -50px;
+    margin-top: -20px;
+    margin-bottom: -100px; /* Bài 26 */
 }
 
 .main-nav{
@@ -187,16 +188,34 @@ header{
     left: 0;
     z-index: 900;
     width: 100%;
-    height: 70px;
+    /* height: 70px; */ 
+    padding-bottom: 10px; /* Bài 26 */
 }
 
 .sticky .logo{
     width: 250px;
     margin-top: -40px;
+    margin-bottom: -70px; /* Bài 26 */
 }
 
 .sticky .main-nav{
     margin-top: 30px;
+}
+
+/* -------------------------------------------- */
+/* ----------Mobile Navigation Icon------------ */
+/* -------------------------------------------- */
+.mobile-nav-icon{
+    font-size: 200%;
+    color: #6b95bd;
+    position: absolute;
+    top: 50px;
+    right: 100px;
+    display: none;
+}
+
+.sticky .mobile-nav-icon{
+    top: 30px;
 }
 
 /* -------------------------------------------- */

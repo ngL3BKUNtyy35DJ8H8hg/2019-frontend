@@ -81,7 +81,11 @@ Bài 22: Update */
     }
 
     .main-nav{
-        visibility: hidden;
+        display: none; /* visibility: hidden; */
+    }
+
+    .mobile-nav-icon{
+        display: block;
     }
 
     .logo{
@@ -180,6 +184,12 @@ Bài 22: Update */
     }
 }
 
+@media only screen and (max-width: 570px){
+    .mobile-nav-icon{
+        right: 50px;
+    }
+}
+
 /* Small phones from 0 to 480px */
 @media only screen and (max-width: 480px){
     html{
@@ -233,5 +243,13 @@ Bài 22: Update */
         margin-left: 5%;
     }
 
+    .mobile-nav-icon{
+     top: 110px;
+    }
+
+    .sticky .logo{
+        width: 200px;
+        margin-top: -25px;
+    }
 }
 

@@ -22,6 +22,23 @@ $(document).ready(
             }, 500); //Thông số 500: hiệu ứng tốc độ scroll
             event.preventDefault();
         });
+
+        //mobile navigation
+        $('.mobile-nav-icon').click(
+            function(){
+                $('.main-nav').slideToggle(200);
+
+                if ($('.mobile-nav-icon').hasClass('fa-bars')){
+                    $('.mobile-nav-icon').addClass('fa-times');
+                    $('.mobile-nav-icon').removeClass('fa-bars');
+                }
+                else
+                {
+                        $('.mobile-nav-icon').removeClass('fa-times');
+                        $('.mobile-nav-icon').addClass('fa-bars');
+                }
+            }
+        )
     }
 )
 
