@@ -1,0 +1,62 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+h1{
+	color: green;
+	font-family: 'Lato', sans-serif;
+	font-weight: 900;
+	font-size: 50px;
+}
+
+textarea{
+	display: block;
+}
+
+h1{
+	border: 4px solid red;
+	padding: 40px 0px;
+	/*display: block;*/
+	background-color: aqua;
+}
+
+.container{
+	width: 1140px;
+	margin: 0 auto;
+	padding-top: 100px;
+	background-color: papayawhip;
+	position: relative;
+
+}
+
+.content{
+	background-color: lightsalmon;
+	width:75%;
+	float: left;
+	position: relative;
+}
+
+.avatar{
+	width: 25%;
+	background-color: green;
+	float: left;
+}
+
+.info{
+	background-color: orange;
+}
+
+.clearfix::after{
+	content:"";
+	display: table;
+	clear:both;
+}
+
+.date{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	/*position: fixed;
+	position: absolute;*/
+}
