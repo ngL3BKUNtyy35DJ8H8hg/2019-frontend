@@ -1,0 +1,21 @@
+body{
+    margin: 0;
+}
+/* ----------------------------------------- */
+/* --------------Start Header -------------- */
+/* ----------------------------------------- */
+.header{
+    width: 100%;
+    background-color: #b06010;
+    padding: 10px 0;
+}
+
+.header-content{
+    width: 80%;
+    margin: 0 auto;
+    color: white;
+}
+
+.header-content i, span{
+    margin-right: 10px;
+}
