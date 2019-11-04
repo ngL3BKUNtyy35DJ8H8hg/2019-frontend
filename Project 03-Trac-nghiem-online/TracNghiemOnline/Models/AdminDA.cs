@@ -61,17 +61,15 @@ namespace TracNghiemOnline.Models
             }
             return admin;
         }
-        public bool AddAdmin(string name ,string username, string password, string gender, string email, string birthday)
+        public bool AddAdmin(string name ,string username, string password)
         {
             var admin = new admin();
             admin.name = name;
             admin.username = username;
             admin.password = Common.Encryptor.MD5Hash(password);
-            admin.gender = gender;
-            admin.email = email;
             admin.id_permission = 1;
             admin.avatar = "avatar-default.jpg";
-            admin.birthday = Convert.ToDateTime(birthday);
+            //admin.birthday = Convert.ToDateTime(birthday);
             try
             {
                 db.admins.Add(admin);
@@ -97,16 +95,14 @@ namespace TracNghiemOnline.Models
             }
             return true;
         }
-        public bool EditAdmin(int id_admin, string name, string username, string password, string gender, string email, string birthday)
+        public bool EditAdmin(int id_admin, string name, string username, string password)
         {
             try
             {
                 var update = (from x in db.admins where x.id_admin == id_admin select x).Single();
                 update.name = name;
                 update.username = username;
-                update.email = email;
-                update.gender = gender;
-                update.birthday = Convert.ToDateTime(birthday);
+                //update.birthday = Convert.ToDateTime(birthday);
                 if(password != null)
                     update.password = Common.Encryptor.MD5Hash(password);
                 db.SaveChanges();
@@ -217,13 +213,11 @@ namespace TracNghiemOnline.Models
             student.name = name;
             student.username = username;
             student.password = Common.Encryptor.MD5Hash(password);
-            student.gender = gender;
-            student.email = email;
             student.id_permission = 3;
             student.id_speciality = id_speciality;
             student.id_class = id_class;
             student.avatar = "avatar-default.jpg";
-            student.birthday = Convert.ToDateTime(birthday);
+            //student.birthday = Convert.ToDateTime(birthday);
             try
             {
                 db.students.Add(student);
@@ -271,11 +265,9 @@ namespace TracNghiemOnline.Models
                 var update = (from x in db.students where x.id_student == id_student select x).Single();
                 update.name = name;
                 update.username = username;
-                update.email = email;
-                update.gender = gender;
                 update.id_speciality = id_speciality;
                 update.id_class = id_class;
-                update.birthday = Convert.ToDateTime(birthday);
+                //update.birthday = Convert.ToDateTime(birthday);
                 if (password != null)
                     update.password = Common.Encryptor.MD5Hash(password);
                 db.SaveChanges();

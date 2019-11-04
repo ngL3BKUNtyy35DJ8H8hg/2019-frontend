@@ -15,28 +15,18 @@ namespace TracNghiemOnline.Models
 using System;
     using System.Collections.Generic;
     
-public partial class student_test_detail
+public partial class sysdiagram
 {
 
-    public int ID { get; set; }
+    public string name { get; set; }
 
-    public int id_student { get; set; }
+    public int principal_id { get; set; }
 
-    public int test_code { get; set; }
+    public int diagram_id { get; set; }
 
-    public int id_question { get; set; }
+    public Nullable<int> version { get; set; }
 
-    public string answer_a { get; set; }
-
-    public string answer_b { get; set; }
-
-    public string answer_c { get; set; }
-
-    public string answer_d { get; set; }
-
-    public string student_answer { get; set; }
-
-    public Nullable<System.DateTime> timestamps { get; set; }
+    public byte[] definition { get; set; }
 
 }
 

@@ -47,10 +47,10 @@ namespace TracNghiemOnline.Controllers
             string name = form["name"];
             string username = form["username"];
             string password = form["password"];
-            string email = form["email"];
-            string gender = form["gender"];
-            string birthday = form["birthday"];
-            bool add = Model.AddAdmin(name,username,password,gender,email,birthday);
+            //string email = form["email"];
+            //string gender = form["gender"];
+            //string birthday = form["birthday"];
+            bool add = Model.AddAdmin(name,username,password);
             if(add)
             {
                 TempData["status_id"] = true;
@@ -131,10 +131,10 @@ namespace TracNghiemOnline.Controllers
             string name = form["name"];
             string username = form["username"];
             string password = form["password"];
-            string email = form["email"];
-            string gender = form["gender"];
-            string birthday = form["birthday"];
-            bool edit = Model.EditAdmin(id_admin, name, username, password, gender, email, birthday);
+            //string email = form["email"];
+            //string gender = form["gender"];
+            //string birthday = form["birthday"];
+            bool edit = Model.EditAdmin(id_admin, name, username, password);
             if (edit)
             {
                 TempData["status_id"] = true;

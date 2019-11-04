@@ -50,7 +50,7 @@ namespace TracNghiemOnline.Models
             HttpContext.Current.Session.Add(Common.UserSession.ID, user.id_admin);
             HttpContext.Current.Session.Add(Common.UserSession.PERMISSION, user.id_permission);
             HttpContext.Current.Session.Add(Common.UserSession.USERNAME, user.username);
-            HttpContext.Current.Session.Add(Common.UserSession.EMAIL, user.email);
+            //HttpContext.Current.Session.Add(Common.UserSession.EMAIL, user.email);
             HttpContext.Current.Session.Add(Common.UserSession.AVATAR, user.avatar);
             HttpContext.Current.Session.Add(Common.UserSession.NAME, user.name);
         }
@@ -72,7 +72,7 @@ namespace TracNghiemOnline.Models
             HttpContext.Current.Session.Add(Common.UserSession.ID, user.id_student);
             HttpContext.Current.Session.Add(Common.UserSession.PERMISSION, user.id_permission);
             HttpContext.Current.Session.Add(Common.UserSession.USERNAME, user.username);
-            HttpContext.Current.Session.Add(Common.UserSession.EMAIL, user.email);
+            //HttpContext.Current.Session.Add(Common.UserSession.EMAIL, user.email);
             HttpContext.Current.Session.Add(Common.UserSession.AVATAR, user.avatar);
             HttpContext.Current.Session.Add(Common.UserSession.NAME, user.name);
             HttpContext.Current.Session.Add(Common.UserSession.TESTCODE, user.is_testing);
