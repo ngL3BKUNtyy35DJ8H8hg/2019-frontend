@@ -1,6 +1,11 @@
 body{
     margin: 0;
 }
+
+.clear{
+    clear: both;
+}
+
 /* ----------------------------------------- */
 /* --------------Start Header -------------- */
 /* ----------------------------------------- */
@@ -66,8 +71,8 @@ body{
 }
 
 .social{
-    padding-top: 1rem;
-    width: 10%;
+    padding-top: 1.2rem;
+    width: 20%;
 }
 
 .social-item{
