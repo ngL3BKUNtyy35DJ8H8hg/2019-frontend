@@ -61,7 +61,7 @@ namespace TracNghiemOnline.Models
             HttpContext.Current.Session.Add(Common.UserSession.ID, user.id_teacher);
             HttpContext.Current.Session.Add(Common.UserSession.PERMISSION, user.id_permission);
             HttpContext.Current.Session.Add(Common.UserSession.USERNAME, user.username);
-            HttpContext.Current.Session.Add(Common.UserSession.EMAIL, user.email);
+            //HttpContext.Current.Session.Add(Common.UserSession.EMAIL, user.email);
             HttpContext.Current.Session.Add(Common.UserSession.AVATAR, user.avatar);
             HttpContext.Current.Session.Add(Common.UserSession.NAME, user.name);
         }

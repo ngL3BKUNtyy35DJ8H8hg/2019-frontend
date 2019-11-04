@@ -163,12 +163,8 @@
           <Property Name="id_teacher" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="username" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="password" Type="varchar" MaxLength="32" Nullable="false" />
-          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="avatar" Type="varchar" MaxLength="255" />
           <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="gender" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="birthday" Type="date" Nullable="false" />
-          <Property Name="phone" Type="varchar" MaxLength="45" />
           <Property Name="id_permission" Type="int" Nullable="false" />
           <Property Name="id_speciality" Type="int" Nullable="false" />
           <Property Name="last_login" Type="datetime" />
@@ -465,7 +461,6 @@
           <EntitySet Name="students" EntityType="Model.student" />
           <EntitySet Name="subjects" EntityType="Model.subject" />
           <EntitySet Name="sysdiagrams" EntityType="Model.sysdiagram" />
-          <EntitySet Name="teachers" EntityType="Model.teacher" />
           <EntitySet Name="tests" EntityType="Model.test" />
           <AssociationSet Name="FK__admins__id_permi__46E78A0C" Association="Model.FK__admins__id_permi__46E78A0C">
             <End Role="permission" EntitySet="permissions" />
@@ -486,10 +481,6 @@
           <AssociationSet Name="FK__students__id_per__4F7CD00D" Association="Model.FK__students__id_per__4F7CD00D">
             <End Role="permission" EntitySet="permissions" />
             <End Role="student" EntitySet="students" />
-          </AssociationSet>
-          <AssociationSet Name="FK__teachers__id_per__4AB81AF0" Association="Model.FK__teachers__id_per__4AB81AF0">
-            <End Role="permission" EntitySet="permissions" />
-            <End Role="teacher" EntitySet="teachers" />
           </AssociationSet>
           <AssociationSet Name="FK__questions__id_su__5629CD9C" Association="Model.FK__questions__id_su__5629CD9C">
             <End Role="subject" EntitySet="subjects" />
@@ -515,10 +506,6 @@
             <End Role="speciality" EntitySet="specialities" />
             <End Role="student" EntitySet="students" />
           </AssociationSet>
-          <AssociationSet Name="FK__teachers__id_spe__4BAC3F29" Association="Model.FK__teachers__id_spe__4BAC3F29">
-            <End Role="speciality" EntitySet="specialities" />
-            <End Role="teacher" EntitySet="teachers" />
-          </AssociationSet>
           <AssociationSet Name="FK__tests__id_status__59FA5E80" Association="Model.FK__tests__id_status__59FA5E80">
             <End Role="status" EntitySet="statuses" />
             <End Role="test" EntitySet="tests" />
@@ -526,6 +513,15 @@
           <AssociationSet Name="FK__tests__id_subjec__59063A47" Association="Model.FK__tests__id_subjec__59063A47">
             <End Role="subject" EntitySet="subjects" />
             <End Role="test" EntitySet="tests" />
+          </AssociationSet>
+          <EntitySet Name="teachers" EntityType="Model.teacher" />
+          <AssociationSet Name="FK__teachers__id_per__4AB81AF0" Association="Model.FK__teachers__id_per__4AB81AF0">
+            <End Role="permission" EntitySet="permissions" />
+            <End Role="teacher" EntitySet="teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__teachers__id_spe__4BAC3F29" Association="Model.FK__teachers__id_spe__4BAC3F29">
+            <End Role="speciality" EntitySet="specialities" />
+            <End Role="teacher" EntitySet="teachers" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="admin">
@@ -703,28 +699,6 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="teacher">
-          <Key>
-            <PropertyRef Name="id_teacher" />
-          </Key>
-          <Property Name="id_teacher" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="password" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="avatar" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="gender" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="birthday" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="phone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="id_permission" Type="Int32" Nullable="false" />
-          <Property Name="id_speciality" Type="Int32" Nullable="false" />
-          <Property Name="last_login" Type="DateTime" Precision="3" />
-          <Property Name="last_seen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="last_seen_url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="timestamps" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="permission" Relationship="Model.FK__teachers__id_per__4AB81AF0" FromRole="teacher" ToRole="permission" />
-          <NavigationProperty Name="speciality" Relationship="Model.FK__teachers__id_spe__4BAC3F29" FromRole="teacher" ToRole="speciality" />
-        </EntityType>
         <EntityType Name="test">
           <Key>
             <PropertyRef Name="test_code" />
@@ -803,18 +777,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__teachers__id_per__4AB81AF0">
-          <End Type="Model.permission" Role="permission" Multiplicity="1" />
-          <End Type="Model.teacher" Role="teacher" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="permission">
-              <PropertyRef Name="id_permission" />
-            </Principal>
-            <Dependent Role="teacher">
-              <PropertyRef Name="id_permission" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__questions__id_su__5629CD9C">
           <End Type="Model.subject" Role="subject" Multiplicity="1" />
           <End Type="Model.question" Role="question" Multiplicity="*" />
@@ -887,18 +849,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__teachers__id_spe__4BAC3F29">
-          <End Type="Model.speciality" Role="speciality" Multiplicity="1" />
-          <End Type="Model.teacher" Role="teacher" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="speciality">
-              <PropertyRef Name="id_speciality" />
-            </Principal>
-            <Dependent Role="teacher">
-              <PropertyRef Name="id_speciality" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__tests__id_status__59FA5E80">
           <End Type="Model.status" Role="status" Multiplicity="1" />
           <End Type="Model.test" Role="test" Multiplicity="*" />
@@ -920,6 +870,48 @@
             </Principal>
             <Dependent Role="test">
               <PropertyRef Name="id_subject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="teacher">
+          <Key>
+            <PropertyRef Name="id_teacher" />
+          </Key>
+          <Property Name="id_teacher" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="avatar" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="id_permission" Type="Int32" Nullable="false" />
+          <Property Name="id_speciality" Type="Int32" Nullable="false" />
+          <Property Name="last_login" Type="DateTime" Precision="3" />
+          <Property Name="last_seen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="last_seen_url" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="timestamps" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="permission" Relationship="Model.FK__teachers__id_per__4AB81AF0" FromRole="teacher" ToRole="permission" />
+          <NavigationProperty Name="speciality" Relationship="Model.FK__teachers__id_spe__4BAC3F29" FromRole="teacher" ToRole="speciality" />
+        </EntityType>
+        <Association Name="FK__teachers__id_per__4AB81AF0">
+          <End Type="Model.permission" Role="permission" Multiplicity="1" />
+          <End Type="Model.teacher" Role="teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="permission">
+              <PropertyRef Name="id_permission" />
+            </Principal>
+            <Dependent Role="teacher">
+              <PropertyRef Name="id_permission" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__teachers__id_spe__4BAC3F29">
+          <End Type="Model.speciality" Role="speciality" Multiplicity="1" />
+          <End Type="Model.teacher" Role="teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="speciality">
+              <PropertyRef Name="id_speciality" />
+            </Principal>
+            <Dependent Role="teacher">
+              <PropertyRef Name="id_speciality" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1090,27 +1082,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="teachers">
-            <EntityTypeMapping TypeName="Model.teacher">
-              <MappingFragment StoreEntitySet="teachers">
-                <ScalarProperty Name="timestamps" ColumnName="timestamps" />
-                <ScalarProperty Name="last_seen_url" ColumnName="last_seen_url" />
-                <ScalarProperty Name="last_seen" ColumnName="last_seen" />
-                <ScalarProperty Name="last_login" ColumnName="last_login" />
-                <ScalarProperty Name="id_speciality" ColumnName="id_speciality" />
-                <ScalarProperty Name="id_permission" ColumnName="id_permission" />
-                <ScalarProperty Name="phone" ColumnName="phone" />
-                <ScalarProperty Name="birthday" ColumnName="birthday" />
-                <ScalarProperty Name="gender" ColumnName="gender" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="avatar" ColumnName="avatar" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="username" ColumnName="username" />
-                <ScalarProperty Name="id_teacher" ColumnName="id_teacher" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tests">
             <EntityTypeMapping TypeName="Model.test">
               <MappingFragment StoreEntitySet="tests">
@@ -1123,6 +1094,23 @@
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="test_code" ColumnName="test_code" />
                 <ScalarProperty Name="test_name" ColumnName="test_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="teachers">
+            <EntityTypeMapping TypeName="Model.teacher">
+              <MappingFragment StoreEntitySet="teachers">
+                <ScalarProperty Name="timestamps" ColumnName="timestamps" />
+                <ScalarProperty Name="last_seen_url" ColumnName="last_seen_url" />
+                <ScalarProperty Name="last_seen" ColumnName="last_seen" />
+                <ScalarProperty Name="last_login" ColumnName="last_login" />
+                <ScalarProperty Name="id_speciality" ColumnName="id_speciality" />
+                <ScalarProperty Name="id_permission" ColumnName="id_permission" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="avatar" ColumnName="avatar" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id_teacher" ColumnName="id_teacher" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

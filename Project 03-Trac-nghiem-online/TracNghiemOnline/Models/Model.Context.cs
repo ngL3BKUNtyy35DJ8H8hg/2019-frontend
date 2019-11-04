@@ -58,9 +58,9 @@ public partial class trac_nghiem_onlineEntities : DbContext
 
     public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 
-    public virtual DbSet<teacher> teachers { get; set; }
-
     public virtual DbSet<test> tests { get; set; }
+
+    public virtual DbSet<teacher> teachers { get; set; }
 
 }
 

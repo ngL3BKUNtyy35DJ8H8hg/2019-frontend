@@ -164,11 +164,8 @@ namespace TracNghiemOnline.Controllers
             string name = form["name"];
             string username = form["username"];
             string password = form["password"];
-            string email = form["email"];
-            string gender = form["gender"];
-            string birthday = form["birthday"];
             int id_speciality = Convert.ToInt32(form["id_speciality"]);
-            bool add = Model.AddTeacher(name, username, password, gender, email, birthday, id_speciality);
+            bool add = Model.AddTeacher(name, username, password, id_speciality);
             if (add)
             {
                 TempData["status_id"] = true;
@@ -251,11 +248,8 @@ namespace TracNghiemOnline.Controllers
             string name = form["name"];
             string username = form["username"];
             string password = form["password"];
-            string email = form["email"];
-            string gender = form["gender"];
-            string birthday = form["birthday"];
             int id_speciality = Convert.ToInt32(form["id_speciality"]);
-            bool edit = Model.EditTeacher(id_teacher, name, username, password, gender, email, birthday, id_speciality);
+            bool edit = Model.EditTeacher(id_teacher, name, username, password, id_speciality);
             if (edit)
             {
                 TempData["status_id"] = true;
@@ -286,12 +280,9 @@ namespace TracNghiemOnline.Controllers
             string name = form["name"];
             string username = form["username"];
             string password = form["password"];
-            string email = form["email"];
-            string gender = form["gender"];
-            string birthday = form["birthday"];
             int id_speciality = Convert.ToInt32(form["id_speciality"]);
             int id_class = Convert.ToInt32(form["id_class"]);
-            bool add = Model.AddStudent(name, username, password, gender, email, birthday, id_speciality, id_class);
+            bool add = Model.AddStudent(name, username, password, id_speciality, id_class);
             if (add)
             {
                 TempData["status_id"] = true;
@@ -375,12 +366,9 @@ namespace TracNghiemOnline.Controllers
             string name = form["name"];
             string username = form["username"];
             string password = form["password"];
-            string email = form["email"];
-            string gender = form["gender"];
-            string birthday = form["birthday"];
             int id_speciality = Convert.ToInt32(form["id_speciality"]);
             int id_class = Convert.ToInt32(form["id_class"]);
-            bool edit = Model.EditStudent(id_student, name, username, password, gender, email, birthday, id_speciality, id_class);
+            bool edit = Model.EditStudent(id_student, name, username, password, id_speciality, id_class);
             if (edit)
             {
                 TempData["status_id"] = true;

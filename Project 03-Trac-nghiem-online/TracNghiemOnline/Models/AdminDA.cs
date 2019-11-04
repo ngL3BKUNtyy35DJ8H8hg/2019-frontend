@@ -122,18 +122,15 @@ namespace TracNghiemOnline.Models
         {
             return db.specialities.ToList();
         }
-        public bool AddTeacher(string name, string username, string password, string gender, string email, string birthday, int id_speciality)
+        public bool AddTeacher(string name, string username, string password, int id_speciality)
         {
             var teacher = new teacher();
             teacher.name = name;
             teacher.username = username;
             teacher.password = Common.Encryptor.MD5Hash(password);
-            teacher.gender = gender;
-            teacher.email = email;
             teacher.id_permission = 2;
             teacher.id_speciality = id_speciality;
             teacher.avatar = "avatar-default.jpg";
-            teacher.birthday = Convert.ToDateTime(birthday);
             try
             {
                 db.teachers.Add(teacher);
@@ -173,17 +170,14 @@ namespace TracNghiemOnline.Models
             }
             return teacher;
         }
-        public bool EditTeacher(int id_teacher, string name, string username, string password, string gender, string email, string birthday, int id_speciality)
+        public bool EditTeacher(int id_teacher, string name, string username, string password, int id_speciality)
         {
             try
             {
                 var update = (from x in db.teachers where x.id_teacher == id_teacher select x).Single();
                 update.name = name;
                 update.username = username;
-                update.email = email;
-                update.gender = gender;
                 update.id_speciality = id_speciality;
-                update.birthday = Convert.ToDateTime(birthday);
                 if (password != null)
                     update.password = Common.Encryptor.MD5Hash(password);
                 db.SaveChanges();
@@ -207,7 +201,7 @@ namespace TracNghiemOnline.Models
                                                select new StudentViewModel { student = x, speciality = s, Class = c }).ToList();
             return students;
         }
-        public bool AddStudent(string name, string username, string password, string gender, string email, string birthday, int id_speciality, int id_class)
+        public bool AddStudent(string name, string username, string password, int id_speciality, int id_class)
         {
             var student = new student();
             student.name = name;
@@ -217,7 +211,6 @@ namespace TracNghiemOnline.Models
             student.id_speciality = id_speciality;
             student.id_class = id_class;
             student.avatar = "avatar-default.jpg";
-            //student.birthday = Convert.ToDateTime(birthday);
             try
             {
                 db.students.Add(student);
@@ -258,7 +251,7 @@ namespace TracNghiemOnline.Models
             }
             return student;
         }
-        public bool EditStudent(int id_student, string name, string username, string password, string gender, string email, string birthday, int id_speciality, int id_class)
+        public bool EditStudent(int id_student, string name, string username, string password, int id_speciality, int id_class)
         {
             try
             {

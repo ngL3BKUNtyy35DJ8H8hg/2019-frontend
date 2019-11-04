@@ -26,10 +26,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Tài Khoản</th>
-                    <th>Email</th>
                     <th>Tên</th>
-                    <th>Giới Tính</th>
-                    <th>Ngày Sinh</th>
                     <th>Lớp</th>
                     <th>Thông Tin</th>
                     <th>
@@ -53,10 +50,7 @@
                     <tr>
                         <td>@item.student.id_student</td>
                         <td>@item.student.username</td>
-                        <td>@item.student.email</td>
                         <td>@item.student.name</td>
-                        <td>@item.student.gender</td>
-                        <td>@item.student.birthday.Date.ToString("dd-MM-yyyy")</td>
                         <td>Lớp @item.Class.class_name <br />Ngành @item.speciality.speciality_name</td>
                         <td>
                             @if (item.student.last_seen == null)
@@ -104,40 +98,24 @@
         <div class="col s12">
             <ul class="tabs">
                 <li class="tab col s6"><a href="#add_normal" class="active" style="color: #02796e; font-weight: bold;">Thêm Sinh Viên</a></li>
-                <li class="tab col s6"><a href="#_add_via_file" style="color: #02796e; font-weight: bold;">Thêm Bằng File</a></li>
+                @*<li class="tab col s6"><a href="#_add_via_file" style="color: #02796e; font-weight: bold;">Thêm Bằng File</a></li>*@
             </ul>
         </div>
         <div id="add_normal" class="col s12">
             @using (Html.BeginForm("AddStudent", "Admin", FormMethod.Post))
             {
-            <div class="col l6 s12">
-                <div class="input-field">
-                    <label for="name">Tên <span class="failed">(*)</span></label>
-                    <input type="text" id="name" name="name" onchange="" required>
-                </div>
-                <div class="input-field">
-                    <label for="username">Tài khoản <span class="failed">(*)</span></label>
-                    <input type="text" name="username" id="username" required>
-                </div>
-                <div class="input-field">
-                    <label for="password">Mật khẩu <span class="failed">(*)</span></label>
-                    <input type="password" data-minlength="6" name="password" id="password" required>
-                </div>
-                <div class="input-field">
-                    <select name="gender" id="gender" required>
-                        <option value="Nam" selected>Nam</option>
-                        <option value="Nữ">Nữ</option>
-                    </select>
-                    <label>Giới Tính</label>
-                </div>
-            </div>
                 <div class="col l6 s12">
                     <div class="input-field">
-                        <label for="email">Email <span class="failed">(*)</span></label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="name">Tên <span class="failed">(*)</span></label>
+                        <input type="text" id="name" name="name" onchange="" required>
                     </div>
                     <div class="input-field">
-                        <input type="date" name="birthday" id="birthday" required value="1997-01-01">
+                        <label for="username">Tài khoản <span class="failed">(*)</span></label>
+                        <input type="text" name="username" id="username" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="password">Mật khẩu <span class="failed">(*)</span></label>
+                        <input type="password" data-minlength="6" name="password" id="password" required>
                     </div>
                     <div class="input-field">
                         <select name="id_class" id="id_class" required>
@@ -163,9 +141,9 @@
                 </div>
             }
         </div>
-        <div id="_add_via_file" class="col s12">
+        @*<div id="_add_via_file" class="col s12">
             <span class="title">Chức Năng Đang Xây Dựng!</span>
-        </div>
+        </div>*@
     </div>
 </div>
 <script>
@@ -188,7 +166,7 @@
             }
         },
         "aoColumnDefs": [
-            { "bSortable": false, "aTargets": [8 , 9] }
+            { "bSortable": false, "aTargets": [8, 9] }
         ]
     });
     $('select').select();
